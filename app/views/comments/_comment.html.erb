@@ -1,0 +1,15 @@
+<li id="comment-<%=c.id%>">
+                    <p><%= c.content %><sub><%= c.user.email %></sub></p>
+                    <p><sub>
+                        <% if user_signed_in? %>
+                          <%= link_to c.like_comment_status_string(current_user.id ,  c.post_id),  toggle_like_comment_path(c.id) ,  method: :post %>
+                          <% end %>
+                          &nbsp<%= c.cls.length %>
+                          </sub></p>
+                    <% if user_signed_in?  && c.user.id ==  current_user.id %>
+                       <p><%= link_to "DELETE COMMENT" ,  destroy_comment_path(c) ,  remote: true , method: :delete %> </p>
+                    <%end%> 
+
+
+                    
+</li>

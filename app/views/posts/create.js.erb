@@ -1,0 +1,12 @@
+console.log("HELLO");
+var postContainer =  $('#posts-list');
+var newPost =  $("<%= escape_javascript render 'posts/post', p: @new %>");
+postContainer.prepend(newPost);
+
+new Noty({
+    text: 'Someone just posted!',
+    theme: 'mint',
+    type: 'warning',
+    layout: 'topRight',
+    timeout: 1000,
+}).show(); 

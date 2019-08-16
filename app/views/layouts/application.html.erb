@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ConnectiLast</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
+
+  
+
+  </head>
+
+  <body>
+
+    <div id="main">
+    
+      <div id="image-div">
+      	 <img id="image" src="https://www.redditstatic.com/new-icon.png">
+      </div> 	
+      <div id="details-div">  
+        <% if user_signed_in? %>
+          <p>USER ID : <%= current_user.email %></p>
+          <p>PROFILE PAGE LINK : <%= link_to "PROFILE" , user_profile_path(current_user.id)  ,  method: :get %></p>
+         
+          <p><%= link_to "SIGN OUT" , destroy_user_session_path, method: :delete %></p> 
+        <% else %>
+           <p><%= link_to "SIGN IN" ,  new_user_session_path %></p>
+           <p><%= link_to "SIGN UP"  , new_user_registration_path %></p>
+           <p><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></p>
+
+        <%end%>
+      </div>
+     </div>
+     <br>
+     <br>
+    <%= yield %>
+        
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+
+
+  </body>
+</html>

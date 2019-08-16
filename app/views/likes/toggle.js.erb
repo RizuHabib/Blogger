@@ -1,0 +1,12 @@
+var newLike =  $("<%= escape_javascript render 'likes/like' ,  p: @post%>");
+$('#like-post-<%=@post.id%>').html(newLike);
+
+
+
+new Noty({
+    text: 'Like Status Changed!',
+    theme: 'relax',
+    type: 'warning',
+    layout: 'topRight',
+    timeout: 1000,
+}).show(); 

@@ -1,0 +1,26 @@
+ 
+<div> 
+               <% if user_signed_in? %>
+                     <%= form_for @comment  ,  remote: true do |c|  %> <!-- render from create coz home vala nahi bachega-->
+                       <%= c.hidden_field :post_id   , value: p.id %>
+                       <%= c.label :content %>
+                       <%= c.text_field :content %>
+                       <%= c.submit %>
+                     <%end%> 
+                <%end%>
+          
+
+
+         <ul id="post-comments-list-<%=p.id%>">
+            <% p.comments.reverse.each do |c| %>
+                <%= render 'comments/comment' , c: c %>  
+             <%end%>
+         </ul> 
+
+
+
+
+
+
+
+</div>         

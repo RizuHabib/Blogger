@@ -1,0 +1,11 @@
+console.log("hello");
+
+$('#post-<%=@post_id %>').remove();
+
+new Noty({
+    text: 'Someone just  deleted a post!',
+    theme: 'relax',
+    type: 'warning',
+    layout: 'topRight',
+    timeout: 1000,
+}).show(); 

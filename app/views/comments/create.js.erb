@@ -1,0 +1,14 @@
+var commentsContainer =  $('#post-comments-list-<%= @Newcomment.post_id%>');
+
+var newComment =  $("<%= escape_javascript render 'comments/comment', c: @Newcomment %>");
+
+commentsContainer.prepend(newComment);
+
+
+new Noty({
+    text: 'Someone just  commented!',
+    theme: 'mint',
+    type: 'warning',
+    layout: 'topRight',
+    timeout: 1000,
+}).show(); 

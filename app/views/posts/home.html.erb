@@ -1,0 +1,59 @@
+<main id="deewar-posts">
+
+
+
+
+<div id="one">
+GROUP LINKS
+</div>
+
+
+
+
+
+<div id="two">   
+
+                      <div>
+                           <%= form_for @post  ,  remote: true do |p|  %>
+                             <%= p.label :content %>
+                             <%= p.text_field :content %>
+                             
+                             <%= p.file_field :avatar %>
+                             <%= p.submit %>
+                             <% end %>	
+                      </div>
+
+
+                      <div>
+                         <ul id="posts-list">
+                           <% @posts.reverse.each do |p| %>
+                              <%= render 'post', p: p %>  
+                          <%end %>
+                          </ul>
+                      </div> 
+
+
+</div>
+
+
+
+
+
+
+
+<div id="three">
+FRIENDS	
+</div>
+
+
+
+
+
+
+</main>
+
+
+
+
+
+

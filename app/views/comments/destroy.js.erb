@@ -1,0 +1,12 @@
+console.log("HELLO");
+
+
+$('#comment-<%= @comment_id %>').remove();
+
+new Noty({
+    text: 'Someone just deleted a  comment!',
+    theme: 'relax',
+    type: 'warning',
+    layout: 'topRight',
+    timeout: 1000,
+}).show(); 
